@@ -1,11 +1,13 @@
 import Home from "@/pages/home/home"
+import { MainLayout } from "@/layouts"
 
 function App() {
   return (
-    <section className="grid place-content-center">
-      <div><p>...</p></div>
-      <Home />
-    </section>
+    <MainLayout>
+      <section>
+          <Home />
+      </section>
+    </MainLayout>
   )
 }
 
