@@ -22,9 +22,10 @@ export default defineConfig([
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": "off", // ← DESACTIVA COMPLETAMENTE
-      "react-hooks/exhaustive-deps": "off", // ← DESACTIVA DEPENDENCIAS
-      "no-unused-vars": "off", // ← DESACTIVA VARIABLES NO USADAS
+      "react-refresh/only-export-components": "off",
+      "no-unused-vars": "off",
+      "Unknown at rule @theme": "off",
+      "Unknown at rule @theme inline": "off"
     },
   },
 ])
