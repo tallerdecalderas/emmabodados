@@ -1,3 +1,4 @@
+export { Popup } from './popup/popup';
 export { Header } from './header/header';
 export { Hero } from './home/hero/hero';
 export { default as Nav } from './home/nav/nav';
