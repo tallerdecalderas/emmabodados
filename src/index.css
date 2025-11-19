@@ -2,15 +2,19 @@
 
 
 :root {
-  --headerblue: #1D2846;
-  --darkblue: #1D2846;
-
+  --skyBlue:   #5B88B2;
+  --navyDeep:  #122C4F;
+  --inkBlue:   #0F172A;
+  --softGray:  #D6D6D5;
+  --cloudGray: #F3F4F5;
 }
 
 @theme inline {
-  --color-headerblue: var(--headerblue);
-  --color-darkblue: var(--darkblue);
-
+  --color-skyBlue:   var(--skyBlue);
+  --color-navyDeep:  var(--navyDeep);
+  --color-inkBlue:   var(--inkBlue);
+  --color-softGray:  var(--softGray);
+  --color-cloudGray: var(--cloudGray);
 }
 
 html {
