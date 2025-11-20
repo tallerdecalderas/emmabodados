@@ -3,7 +3,7 @@ import { allImages } from "@/types/imgtype"
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#122C4F] text-white py-8 px-4">
+    <footer className="bg-[#122C4F] text-white py-8 px-4 mt-8">
       <div className="container mx-auto max-w-5xl">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
 

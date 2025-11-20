@@ -1,7 +1,6 @@
-import { Hero } from "@/components/home/hero/hero"
-import { Form } from "@/components" // se puede importar directamente con components
-import { Services } from "@/components/Services" 
-
+import { Hero } from "@/components/hero/hero";
+import { Form } from "@/components"; // se puede importar directamente con components
+import { Services } from "@/components/cards/Services";
 
 export default function Home() {
   return (
@@ -10,7 +9,7 @@ export default function Home() {
         <Hero />
       </div>
       <article>
-     <Services/>
+        <Services />
       </article>
       <section>
         <h2>Sobre nosotros</h2>
@@ -19,5 +18,5 @@ export default function Home() {
         <Form />
       </section>
     </main>
-  )
+  );
 }
