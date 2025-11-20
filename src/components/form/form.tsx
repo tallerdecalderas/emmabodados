@@ -51,101 +51,100 @@ export const Form = () => {
     }
   };
 
-return (
-  <section className="relative grid place-content-center pt-6 md:pt-12 lg:pt-16">
-    <ImageUtils
-      src={allImages.heroImg}
-      alt="Fondo formulario de contacto"
-      className="absolute inset-0 w-full h-full object-cover z-0"
-    />
+  return (
+    <section className="relative grid place-content-center pt-6 md:pt-12 lg:pt-16 lg:pb-16">
+      <ImageUtils
+        src={allImages.heroImg}
+        alt="Fondo formulario de contacto"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
 
-    <div className="relative bg-blue-950 text-white p-4 rounded-t-lg text-center text-lg md:text-xl">
-      Envianos tu consulta
-    </div>
+      <div className="relative bg-blue-950 text-white p-4 rounded-t-lg text-center text-lg md:text-xl">
+        Envianos tu consulta
+      </div>
+      <form
+        className="bg-amber-50 p-6 md:p-8 md:grid md:grid-cols-2 md:gap-6 relative"
+        onSubmit={handleSubmit}
+      >
+        {/* Nombre y empresa */}
+        <div className="flex flex-col pt-6">
+          <span className="font-semibold">Nombre y empresa</span>
+          <label className="p-1">
+            <input
+              type="text"
+              name="nombre_empresa"
+              placeholder="Ej. Julia - AYMA S.A."
+              className="p-2 border rounded-full border-blue-400 text-center w-full"
+              value={form.nombre_empresa}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
 
-    <form
-      className="bg-amber-50 p-6 md:p-8 md:grid md:grid-cols-2 md:gap-6 relative"
-      onSubmit={handleSubmit}
-    >
-      {/* Nombre y empresa */}
-      <div className="flex flex-col pt-6">
-        <span className="font-semibold">Nombre y empresa</span>
-        <label className="p-1">
-          <input
-            type="text"
-            name="nombre_empresa"
-            placeholder="Ej. Julia - AYMA S.A."
-            className="p-2 border rounded-full border-blue-400 text-center w-full"
-            value={form.nombre_empresa}
-            onChange={handleChange}
+        {/* Email */}
+        <div className="flex flex-col pt-6">
+          <span className="font-semibold">E-mail</span>
+          <label className="p-1">
+            <input
+              type="email"
+              name="email"
+              placeholder="Ej. julia@ayma.com"
+              className="p-2 border rounded-full border-blue-400 text-center w-full"
+              value={form.email}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+
+        {/* Teléfono */}
+        <div className="flex flex-col pt-6">
+          <span className="font-semibold">Telefono / Whatsapp</span>
+          <label className="p-1">
+            <input
+              type="tel"
+              name="telefono"
+              placeholder="Ej. +54 9 11 1234 5678"
+              className="p-2 border rounded-full border-blue-400 text-center w-full"
+              value={form.telefono}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+
+        {/* Motivo */}
+        <div className="flex flex-col pt-6">
+          <span className="font-semibold">Motivo / Area</span>
+          <label className="p-1">
+            <input
+              type="text"
+              name="motivo"
+              placeholder="Compliance, Panel Económico"
+              className="p-2 border rounded-full border-blue-400 text-center w-full"
+              value={form.motivo}
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+
+        {/* Botón (ocupa toda la fila en desktop) */}
+        <div className="flex flex-col pt-8 md:col-span-2">
+          <button
+            type="submit"
+            className="bg-blue-950 text-white p-3 rounded-full mt-4 hover:bg-blue-700 transition-colors w-full md:w-1/3 md:mx-auto"
+          >
+            Enviar consulta
+          </button>
+        </div>
+
+        {popup && (
+          <Popup
+            title={popup.title}
+            message={popup.message}
+            type={popup.type}
+            onClose={() => setPopup(null)}
           />
-        </label>
-      </div>
-
-      {/* Email */}
-      <div className="flex flex-col pt-6">
-        <span className="font-semibold">E-mail</span>
-        <label className="p-1">
-          <input
-            type="email"
-            name="email"
-            placeholder="Ej. julia@ayma.com"
-            className="p-2 border rounded-full border-blue-400 text-center w-full"
-            value={form.email}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-
-      {/* Teléfono */}
-      <div className="flex flex-col pt-6">
-        <span className="font-semibold">Telefono / Whatsapp</span>
-        <label className="p-1">
-          <input
-            type="tel"
-            name="telefono"
-            placeholder="Ej. +54 9 11 1234 5678"
-            className="p-2 border rounded-full border-blue-400 text-center w-full"
-            value={form.telefono}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-
-      {/* Motivo */}
-      <div className="flex flex-col pt-6">
-        <span className="font-semibold">Motivo / Area</span>
-        <label className="p-1">
-          <input
-            type="text"
-            name="motivo"
-            placeholder="Compliance, Panel Económico"
-            className="p-2 border rounded-full border-blue-400 text-center w-full"
-            value={form.motivo}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-
-      {/* Botón (ocupa toda la fila en desktop) */}
-      <div className="flex flex-col pt-8 md:col-span-2">
-        <button
-          type="submit"
-          className="bg-blue-950 text-white p-3 rounded-full mt-4 hover:bg-blue-700 transition-colors w-full md:w-1/3 md:mx-auto"
-        >
-          Enviar consulta
-        </button>
-      </div>
-
-      {popup && (
-        <Popup
-          title={popup.title}
-          message={popup.message}
-          type={popup.type}
-          onClose={() => setPopup(null)}
-        />
-      )}
-    </form>
-  </section>
-);
+        )}
+      </form>
+    </section>
+  );
 };
