@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ImageUtils } from "@/utils/imgUtils";
 import { allImages } from "@/types/imgtype";
 
@@ -25,22 +25,22 @@ export default function Nav() {
         <div className="hidden md:flex md:flex-1 justify-center">
           <ul className="flex gap-8 text-inkBlue font-medium">
             <li>
-              <a href="#inicio" className="hover:opacity-70 transition">
+              <a href="/" className="hover:opacity-70 transition">
                 Inicio
               </a>
             </li>
             <li>
-              <a href="#areas" className="hover:opacity-70 transition">
+              <a href="#service" className="hover:opacity-70 transition">
                 Áreas de práctica
               </a>
             </li>
             <li>
-              <a href="#estudio" className="hover:opacity-70 transition">
+              <a href="#about" className="hover:opacity-70 transition">
                 Nuestro estudio
               </a>
             </li>
             <li>
-              <a href="#miembros" className="hover:opacity-70 transition">
+              <a href="#team" className="hover:opacity-70 transition">
                 Miembros del equipo
               </a>
             </li>

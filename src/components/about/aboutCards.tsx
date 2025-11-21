@@ -17,7 +17,7 @@ export const AboutCards = ({
 }: AboutCardsProps) => {
   return (
     <section className="relative bg-[#F3F4F5] w-[422] h-[754] border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div>
+      <div id="team">
         <img src={src} alt={title} />
       </div>
 
