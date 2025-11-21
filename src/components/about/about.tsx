@@ -15,7 +15,7 @@ export const About = () => {
         </div>
 
         <div className="flex flex-col text-center pb-8 sm:mb-12 lg:mb-16">
-          <div className="relative  p-4  sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          <div className="relative p-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
             <h2 className="text-left text-2xl font-bold text-white pb-2 sm:pb-2">
               Nuestro Estudio
             </h2>
@@ -33,21 +33,31 @@ export const About = () => {
             </div>
           </div>
 
-          <article className="grid p-6   grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 pt-8 sm:pt-12 lg:pt-16">
+          <article
+            className="
+              grid
+              grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+              gap-y-4
+              gap-x-[4px]          /* ~4px entre cards, bien chiquito */
+              pt-8 sm:pt-12 lg:pt-16
+              justify-center
+              justify-items-center
+            "
+          >
             <AboutCards
               src={allImages.pablo}
               title="Pablo Etcheverry"
               subtitle="+15 años en investigaciones criminales. Enfoque en litigios."
-              chip={["Derecho Penal", "Litigios", "UIF", "Lavado de Activos"]}
+              chip={["Derecho Penal", "Litigios"]}
               description="Abogado especialista en Derecho Penal y socio fundador del Estudio. Posee una amplia trayectoria de más de quince años actuando en investigaciones complejas en la Justicia Federal de San Isidro, a lo que se suma un reciente paso por la Unidad de Información Financiera (UIF), donde se desempeñó como Subdirector de Litigios Penales, interviniendo en causas de alto impacto vinculadas al lavado de activos y delitos económicos."
             />
 
             <AboutCards
               src={allImages.julieta}
-              title="julieta Martin"
+              title="Julieta Martin"
               subtitle="Prevención de lavado y delitos económicos. Investigaciones complejas. Armado de áreas de compliance. 
 "
-              chip={["Lavado", "Compliance"]}
+              chip={["PLA/TF", "Penal"]}
               description="Antes de fundar el Estudio, trabajó como Manager de Compliance en una fintech brasileña, se desempeñó como subdirectora de litigios penales en la Unidad de Información Financiera (UIF), formó parte del Estudio Ramirez y Gonzalez Guerra y del Estudio Lisicki Litvin & Asoc, en las áreas de derecho penal económico y compliance.
 Es abogada egresada de la Universidad Empresarial Siglo21, en 2022 se graduó como Magister en Derecho Penal en la Universidad Austral, y realizó posgrados en Derecho Penal Tributario (UBA), Crypto Compliance (UMSA) y Crypto en investigaciones (UBA).
 Es autora de publicaciones académicas y ha participado como docente de posgrado en la Universidad de Buenos Aires y la Universidad Nacional de Entre Ríos, en programas de prevención de lavado.

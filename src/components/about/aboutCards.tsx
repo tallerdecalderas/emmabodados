@@ -16,42 +16,89 @@ export const AboutCards = ({
   children,
 }: AboutCardsProps) => {
   return (
-    <section className="relative bg-[#F3F4F5] w-[422] h-[754] border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div id="team">
-        <img src={src} alt={title} />
-      </div>
+    <section
+      className="
+        relative 
+        bg-softGray              /* fondo de la card */
+        w-full 
+        max-w-88
+        sm:max-w-[24rem]
+        md:max-w-120
+        border 
+        rounded-lg 
+        overflow-hidden
+        shadow-lg hover:shadow-xl 
+        transition-shadow duration-300
+      "
+    >
+      {/* Imagen full-width con overlay */}
+      <div id="team" className="relative w-full">
+        <div className="w-full aspect-square">
+          <img
+            src={src}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      <div className="pt-2 p-2 text-shadow-blue-950 flex flex-col">
-        <div className="pb-3 sm:pb-4">
-          <div className="flex gap-2 sm:gap-4 pb-2 sm:pb-3">
-            <h3 className="font-bold leading-tight">
-              {title}
-            </h3>
-
-            <div className="flex flex-wrap gap-1 sm:gap-2 justify-start sm:justify-end">
-              {chip.map((chipText, index) => (
-                <span
-                  key={index}
-                  className="inline-block text-shadow-blue-950 px-2 py-1 border rounded-full text-xs sm:text-sm whitespace-nowrap mb-1"
-                >
-                  {chipText}
-                </span>
-              ))}
+        {/* Overlay con degradé y título/subtítulo */}
+        <div className="absolute inset-x-0 bottom-0 h-20">
+          <div
+            className="
+              bg-gradient-to-t 
+              from-softGray via-softGray/95 to-transparent  /* match fondo */
+              w-full h-full
+            "
+          >
+            <div className="px-4 pt-4 pb-3 text-left">
+              <h3 className="font-bold text-lg text-navyDeep leading-tight">
+                {title}
+              </h3>
+              <p className="mt-1 text-xs sm:text-sm text-navyDeep leading-snug">
+                {subtitle}
+              </p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <p className="text-gray-700 leading-relaxed">
-            {subtitle}
-          </p>
+      {/* Contenido debajo */}
+      <div
+        className="
+          px-4 pt-2 pb-4
+          text-shadow-blue-950 
+          grid 
+          grid-cols-1 
+          gap-2
+          text-left
+        "
+      >
+        {/* Chips */}
+        <div className="flex flex-wrap gap-2">
+          {chip.map((chipText, index) => (
+            <span
+              key={index}
+              className="
+                inline-block 
+                text-navyDeep
+                px-3 py-1 
+                border border-skyBlue    /* borde del chip */
+                rounded-full 
+                text-xs sm:text-sm 
+                whitespace-nowrap
+              "
+            >
+              {chipText}
+            </span>
+          ))}
         </div>
 
-        <div>
-          <p className="text-sm  text-gray-700 leading-relaxed pr-2">
-            {description}
-          </p>
-        </div>
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-navyDeep leading-[1.2]">
+          {description}
+        </p>
 
-        {children && <div className="card-content mt-2">{children}</div>}
+        {children && <div className="mt-2 text-navyDeep">{children}</div>}
       </div>
     </section>
   )
