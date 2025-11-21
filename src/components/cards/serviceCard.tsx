@@ -1,5 +1,3 @@
-
-
 type ServiceCardProps = {
   title: string;
   description: string;
@@ -11,9 +9,10 @@ export const ServiceCard = ({ title, description, titleClassName }: ServiceCardP
     <div
       className="
         w-full
+        h-full             /* 🔹 hace que el card ocupe todo el alto disponible */
         bg-navyDeep 
         text-white 
-        px-8 py-10
+        px-6 py-7
         flex flex-col
         items-center
         text-center
@@ -22,8 +21,8 @@ export const ServiceCard = ({ title, description, titleClassName }: ServiceCardP
       <h1
         className={`
           font-semibold
-          mb-5
-          text-3xl md:text-2xl   /* tamaño por defecto */
+          mb-2
+          text-base md:text-xl   /* tamaño por defecto */
           ${titleClassName ?? ""} /* override opcional */
         `}
       >
@@ -34,8 +33,8 @@ export const ServiceCard = ({ title, description, titleClassName }: ServiceCardP
 
       <p
         className="
-          text-2xl
-          md:text-2xl
+          text-base
+          md:text-base
           leading-relaxed
         "
       >

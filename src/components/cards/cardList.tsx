@@ -23,23 +23,34 @@ export const CardList = ({ title, items }: CardListProps) => {
       {/* Línea divisora celeste */}
       <div className="mt-3 mb-3 h-px w-full bg-skyBlue" />
 
-      <ul
+      {/* 🔹 Wrapper con margen horizontal */}
+      <div
         className="
           w-full
-          text-left
-          text-sm md:text-base
-          leading-relaxed
-          list-disc
-          pl-5
-          space-y-1
+          mx-4  
+          md:mx-80     
         "
       >
-        {items.map((item, index) => (
-          <li key={index}>
-            {item}
-          </li>
-        ))}
-      </ul>
+        <ul
+          className="
+            w-full
+            text-left
+            text-sm md:text-base
+            leading-relaxed
+            list-disc
+            pl-5
+            space-y-1
+            columns-1 md:columns-2 
+            md:gap-x-10             
+          "
+        >
+          {items.map((item, index) => (
+            <li key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
