@@ -1,55 +1,66 @@
-import { useForm } from "@/hooks"
-import { sendEmail } from "@/services/form"
-import type { FormType } from "@/types/form"
-import { useState } from "react"
-import { Popup } from "../popup/popup"
-import { allImages } from "@/types/imgtype"
-import { ImageUtils } from "@/utils/imgUtils"
+import { useForm } from "@/hooks";
+import { sendEmail } from "@/services/form";
+import type { FormType } from "@/types/form";
+import { useState, useEffect } from "react";
+import { Popup } from "../popup/popup";
+import { allImages } from "@/types/imgtype";
+import { ImageUtils } from "@/utils/imgUtils";
 
 const initialState: FormType = {
   nombre_empresa: "",
   email: "",
   telefono: Number(""),
   motivo: "",
-}
+};
+
+const TIMEOUTPOPUP = 1000;
 
 export const Form = () => {
-  const { handleChange, resetForm, form } = useForm(initialState)
+  const { handleChange, resetForm, form } = useForm(initialState);
   const [popup, setPopup] = useState<{
-    title: string
-    message: string
-    type: "success" | "error"
-  } | null>(null)
+    title: string;
+    message: string;
+    type: "success" | "error";
+  } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!form.nombre_empresa || !form.email) {
+    if (!form.nombre_empresa || !form.email || !form.telefono) {
       return setPopup({
         title: "Campos requeridos",
-        message: "Por favor completa nombre y email",
+        message: "Por favor completa nombre, email y teléfono",
         type: "error",
-      })
+      });
     }
 
     try {
-      await sendEmail(form)
+      await sendEmail(form);
 
       setPopup({
         title: "Éxito",
         message: "Email enviado correctamente",
         type: "success",
-      })
+      });
 
-      resetForm()
+      resetForm();
     } catch {
       setPopup({
         title: "Error",
         message: "No se pudo enviar el email. Intenta nuevamente.",
         type: "error",
-      })
+      });
     }
-  }
+  };
+
+useEffect(() => {
+  if (!popup) return;
+
+  const timer = setTimeout(() => setPopup(null), TIMEOUTPOPUP);
+
+  return () => clearTimeout(timer);
+}, [popup]);
+
 
   return (
     <section className="relative grid place-content-center pt-22 pb-32">
@@ -63,18 +74,20 @@ export const Form = () => {
         Envianos tu consulta
       </div>
       <form
-        className="bg-amber-50 p-6 relative grid gap-8 md:w-[799px]"
+        className="bg-amber-50 p-4 relative grid gap-8 md:w-[799px] w-[299px]"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col">
           <div className="flex flex-col pt-6">
-            <span className="font-semibold">Nombre y empresa</span>
-            <label className="p-1">
+            <span className="font-semibold text-md sm:text-sm">
+              Nombre y empresa
+            </span>
+            <label className="pt-1">
               <input
                 type="text"
                 name="nombre_empresa"
                 placeholder="Ej. Julia - AYMA S.A."
-                className="p-2 border rounded-full border-blue-400 text-center w-full"
+                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-blue-400 text-center w-full"
                 value={form.nombre_empresa}
                 onChange={handleChange}
               />
@@ -82,13 +95,13 @@ export const Form = () => {
           </div>
 
           <div className="flex flex-col pt-6">
-            <span className="font-semibold">E-mail</span>
-            <label className="p-1">
+            <span className="font-semibold text-md">E-mail</span>
+            <label className="pt-1">
               <input
                 type="email"
                 name="email"
                 placeholder="Ej. julia@ayma.com"
-                className="p-2 border rounded-full border-blue-400 text-center w-full"
+                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-blue-400 text-center w-full"
                 value={form.email}
                 onChange={handleChange}
               />
@@ -101,7 +114,7 @@ export const Form = () => {
                 type="tel"
                 name="telefono"
                 placeholder="Ej. +54 9 11 1234 5678"
-                className="p-2 border rounded-full border-blue-400 text-center w-full"
+                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-blue-400 text-center w-full"
                 value={form.telefono}
                 onChange={handleChange}
               />
@@ -110,20 +123,20 @@ export const Form = () => {
         </div>
 
         <div className="flex flex-col pt-6">
-          <span className="font-semibold">Motivo / Area</span>
-          <label className="p-1">
+          <span className="font-semibold text-md">Motivo / Area</span>
+          <label className="pt-1">
             <input
               type="text"
               name="motivo"
               placeholder="Compliance, Panel Económico"
-              className="overflow-x-auto whitespace-nowrap p-2 border rounded-2xl border-blue-400 text-center w-full h-[200px]"
+              className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-2xl border-blue-400 text-center w-full h-[200px]"
               value={form.motivo}
               onChange={handleChange}
             />
           </label>
         </div>
 
-        <div className="flex flex-col pt-8 md:col-span-2">
+        <div className="flex flex-col pt-8 pb-6 md:col-span-2">
           <button
             type="submit"
             className="bg-blue-950 text-white p-3 rounded-full mt-4 hover:bg-blue-700 transition-colors w-full md:w-1/3 md:mx-auto"
@@ -142,5 +155,5 @@ export const Form = () => {
         )}
       </form>
     </section>
-  )
-}
+  );
+};
