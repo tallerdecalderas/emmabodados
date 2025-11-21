@@ -11,7 +11,7 @@ export const Footer = () => {
             <ImageUtils
               src={allImages.logoFooter}
               alt="Logo Emma Bodados"
-              className="sm:w-60 h-auto"
+              className="sm:w-60 h-40"
             />
           </div>
           <div className="p-6">
