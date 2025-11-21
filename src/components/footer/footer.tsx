@@ -3,18 +3,18 @@ import { allImages } from "@/types/imgtype"
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#122C4F] text-white py-8 px-4">
-      <div className="container mx-auto max-w-5xl">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
+    <footer className="bg-[#122C4F] text-white py-8 px-4 sm:grid sm:place-items-center">
+      <div className="grid place-content-center">
+        <div className="flex flex-wrap">
 
-          <div className="flex lg:pt-8 ">
+          <div className="text-center">
             <ImageUtils
-              src={allImages.logo}
+              src={allImages.logoFooter}
               alt="Logo Emma Bodados"
-              className="w-28 md:w-40 lg:w-60 bg-blue-50"
+              className="sm:w-60 h-auto"
             />
           </div>
-          <div className="flex-1 max-w-md order-3 lg:order-2 text-center lg:text-left">
+          <div className="p-6">
             <h3 className="text-xl font-bold mb-4 text-white">Contacto</h3>
             <div className="space-y-2 text-gray-200">
               <p className="flex flex-col md:flex-row md:items-center gap-1">
@@ -31,7 +31,7 @@ export const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1 max-w-md order-2 lg:order-3 text-center lg:text-left">
+          <div className=" p-6">
             <h3 className="text-xl font-bold mb-4 text-white">
               Áreas de Práctica
             </h3>

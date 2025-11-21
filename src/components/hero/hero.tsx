@@ -1,0 +1,76 @@
+import { allImages } from "@/types/imgtype";
+
+export const Hero = () => {
+  // Textos para MOBILE
+  const mobileTitle = "Estrategia y creatividad en el ejercicio del derecho";
+
+  // Textos para DESKTOP
+  const desktopTitle = "Estrategia y creatividad en el ejercicio del derecho";
+
+  return (
+    <>
+      {/* Versión MOBILE (hasta md) */}
+      <section
+        className="
+          relative
+          w-screen
+          aspect-square
+          md:hidden
+          overflow-hidden
+        "
+      >
+        <img
+          src={allImages.heroImgMobile}
+          alt="Estrategia legal a tu alcance"
+          className="
+            w-full
+            h-full
+            object-cover
+          "
+        />
+
+        <div
+          className="
+            absolute inset-0
+            flex flex-col justify-end items-start
+            px-10 pb-20
+          "
+        >
+          <h1 className="text-cloudGray text-3xl font-bold max-w-xs">
+            {mobileTitle}
+          </h1>
+        </div>
+      </section>
+
+      {/* Versión DESKTOP (md en adelante) */}
+      <section
+        className="
+          relative
+          h-screen w-screen
+          hidden md:flex
+          flex-col justify-center text-left
+          bg-no-repeat bg-center bg-cover
+        "
+        style={{ backgroundImage: `url(${allImages.heroImg})` }}
+      >
+        {/* Contenedor reducido del h1 */}
+        <div className="max-w-xl pl-16">
+          <h1 className="text-navyDeep text-5xl font-bold mb-4">
+            {desktopTitle}
+          </h1>
+        </div>
+
+        {/* Imagen nombres en esquina inferior izquierda */}
+        <img
+          src={allImages.nombres}
+          alt="Nombres del estudio"
+          className="
+            absolute
+            bottom-10 left-0
+            w-xl h-auto
+          "
+        />
+      </section>
+    </>
+  );
+};

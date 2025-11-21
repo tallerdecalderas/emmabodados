@@ -1,6 +1,7 @@
 # React + TypeScript + Vite
 
 ## versiones
+
 - Ubuntu 24.04.3 LTS - x86_64
 - node --version  v22.14.0
 - npx --version  10.9.2
@@ -8,7 +9,6 @@
 ## Configuración inicial
 
 1- Se configuraron rutas alias @
-
 
 ## Arbol del Projecto 12/11/25
 
@@ -53,4 +53,4 @@
 VITE_EMAILJS_SERVICE_ID=
 VITE_EMAILJS_TEMPLATE_ID=
 VITE_EMAILJS_PUBLIC_KEY=
-VITE_API_EMAILJS_UR
+VITE_API_EMAILJS_UR=
