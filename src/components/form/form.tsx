@@ -26,10 +26,10 @@ export const Form = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!form.nombre_empresa || !form.email || !form.telefono) {
+    if (!form.nombre_empresa || !form.email || !form.telefono || !form.motivo) {
       return setPopup({
         title: "Campos requeridos",
-        message: "Por favor completa nombre, email y teléfono",
+        message: "Por favor completa nombre, email, teléfono y motivo",
         type: "error",
       });
     }
